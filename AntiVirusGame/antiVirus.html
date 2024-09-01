@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>防疫遊戲 by steeltail</title>
+    <link rel="shortcut icon" href="TemplateData/steeltail icon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script data-ad-client="ca-pub-6324696437745812" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/virus game web版.json", {onProgress: UnityProgress});
+    </script>
+    <style>
+      .back-btn {
+        background-color: #50a3a2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .back-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">防疫遊戲</div>
+        <!-- 回到主頁的按鈕 -->
+        <button class="back-btn" onclick="window.location.href='../index.html';">回到主頁</button>
+      </div>
+    </div>
+  </body>
+</html>
