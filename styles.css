@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+header {
+    background: #50a3a2;
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.basic-info, .projects, .self-intro {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.project-section {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #35424a;
+}
+
+.basic-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+.profile-photo {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.profile-photo img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.info-text {
+    flex: 2;
+}
+
+.self-intro {
+    text-align: justify;
+}
+
+/* 新增的獎項表格樣式 */
+.awards-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.awards-table th, .awards-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.awards-table th {
+    background-color: #50a3a2;
+    color: white;
+}
+
+.awards-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.awards-table tr:hover {
+    background-color: #ddd;
+}
+
+/* 新增的獎狀按鈕和圖片樣式 */
+.award-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.award-image {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.award-image img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* 使表格支持相對定位，以便正確顯示獎狀圖片 */
+.awards-table td {
+    position: relative;
+}
