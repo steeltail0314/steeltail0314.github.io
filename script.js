@@ -46,4 +46,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         overlay.style.display = 'none';
     }
+
+    document.querySelectorAll('.award-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const pdfDiv = this.nextElementSibling;
+        const isVisible = pdfDiv.style.display === 'block';
+        document.querySelectorAll('.award-pdf').forEach(div => div.style.display = 'none');
+        pdfDiv.style.display = isVisible ? 'none' : 'block';
+    });
 });
+
+});
+
+
+document.querySelectorAll('.award-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const pdfDiv = this.nextElementSibling;
+        const isVisible = pdfDiv.style.display === 'block';
+        document.querySelectorAll('.award-pdf').forEach(div => div.style.display = 'none');
+        pdfDiv.style.display = isVisible ? 'none' : 'block';
+    });
+});
+
