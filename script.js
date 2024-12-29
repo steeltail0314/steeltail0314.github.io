@@ -1,46 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.award-btn');
     const overlay = document.querySelector('.overlay');
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfFrame = document.getElementById('pdf-frame');
 
     buttons.forEach(button => {
         button.addEventListener('click', function(event) {
             const button = event.target;
-            const container = button.nextElementSibling;
+            const pdfSrc = button.getAttribute('data-pdf');
 
-            // 顯示獎狀圖片
-            if (container.classList.contains('award-image')) {
-                const imageSrc = button.getAttribute('data-image');
-                const image = container.querySelector('img');
-                image.src = imageSrc;
-                container.style.display = 'block';
+            // 如果按鈕是 PDF 顯示
+            if (pdfSrc) {
+                pdfFrame.src = pdfSrc;
+                pdfViewer.style.display = 'block';
                 overlay.style.display = 'block';
             }
 
-            // 顯示 PDF 獎狀
-            if (container.classList.contains('award-pdf')) {
-                const isVisible = container.style.display === 'block';
-                document.querySelectorAll('.award-pdf').forEach(div => div.style.display = 'none');
-                container.style.display = isVisible ? 'none' : 'block';
-                overlay.style.display = isVisible ? 'none' : 'block';
-            }
-
-            // 添加關閉按鈕 (避免重複添加)
-            if (!container.querySelector('.close-btn')) {
-                const closeBtn = document.createElement('button');
-                closeBtn.innerHTML = '&times;';
-                closeBtn.className = 'close-btn';
-                closeBtn.addEventListener('click', hideAward);
-                container.appendChild(closeBtn);
+            // 顯示獎狀圖片
+            const imageContainer = button.nextElementSibling;
+            if (imageContainer.classList.contains('award-image')) {
+                const imageSrc = button.getAttribute('data-image');
+                const image = imageContainer.querySelector('img');
+                image.src = imageSrc;
+                imageContainer.style.display = 'block';
+                overlay.style.display = 'block';
             }
         });
     });
 
-    // 點擊遮罩隱藏獎狀或 PDF
-    if (overlay) {
-        overlay.addEventListener('click', hideAward);
-    } else {
-        console.error("Overlay element not found.");
-    }
+    // 點擊遮罩隱藏所有獎狀和 PDF
+    overlay.addEventListener('click', hideAward);
 
     function hideAward(event) {
         event.stopPropagation();
@@ -48,5 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.display = 'none';
         });
         overlay.style.display = 'none';
+        pdfFrame.src = '';  // 清空 iframe 避免載入過多
     }
 });
